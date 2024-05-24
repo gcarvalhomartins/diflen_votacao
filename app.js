@@ -14,6 +14,7 @@ server._express.get('/',(req,res) => {
     res.send(voto.GetVotos())
 });
 
+// post de votos
 server._express.post('/',(req,res) => {
     let obj = req.body
     voto.SaveVoto(obj)

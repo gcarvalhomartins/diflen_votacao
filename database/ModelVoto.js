@@ -73,7 +73,12 @@ class Voto {
 
     return id
   };
-  
+
+/*  GetCategoria(){
+    let { categoria } = this.voto
+    
+  }
+  */
   SaveVoto(voto){
     let id = this.GerarId()
     voto.id_voto = id

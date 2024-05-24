@@ -1,10 +1,10 @@
 {
   "name": "api_form_diflen",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,14 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.19.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcarvalhomartins/diflen_votacao.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gcarvalhomartins/diflen_votacao/issues"
+  },
+  "homepage": "https://github.com/gcarvalhomartins/diflen_votacao#readme",
+  "description": ""
 }
