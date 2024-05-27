@@ -1,4 +1,5 @@
 // classe para limpar a requisição e depois salvar os dados
+
 const User = [{
     "nome": "Gabriel",
     "Telefone": 995736647,
@@ -62,32 +63,40 @@ const User = [{
   }];
 
 
-
 class Serial {
-
-    constructor(obj){
+    
+    constructor(obj) {
         this.obj = obj
-    }
+    };
+
     GerarId(){
         let min = Math.ceil(111111)
         let max = Math.floor(999999)
         let id = Math.floor(Math.random() * (max - min + 1)) + min
     
         return id
-    };
-    SaveIdObj(obj){
+       };
+
+    SaveIdObj(obj) {
         let id = this.GerarId()
         obj.id_obj = id
         User.push(obj)
-        return console.log(`Id Gerado com sucesso: ${id} `)
+        return obj
       };
-    CleanPessoa(obj){
+      // clean pessoa esta ficando nulo
+    CleanPessoa(obj) {
         let armazenamento_pessoa = []
-        for(let { nome,Telefone, id_obj } in obj ){
-            arm.push(nome,Telefone, id_obj)
-        }
-        return armazenamento_pessoa
-    }
-    
+        // // let array_teste_mago = []
+        
+        // array_teste_mago.push(obj)
 
-}
+        // for ( let  key  in obj ) { 
+          
+        // };
+        delete obj.categoria
+        armazenamento_pessoa.push( obj )
+        return armazenamento_pessoa
+      };
+};
+
+module.exports = Serial

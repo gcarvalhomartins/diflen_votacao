@@ -1,6 +1,6 @@
 
 // criar um array de objetos só de teste
-const Pessoa_Voto = [{
+const Pessoa_banco= [{
     "nome": "Alguém",
     "Telefone": 995736647,
     "Email": 'gcarvalhoetc@gmail.com....',
@@ -17,9 +17,16 @@ class Pessoa {
         this.id_voto = id_voto
     }
     SavePessoa(Pessoa){
-        Pessoa_Voto.push(Pessoa)
+        Pessoa_banco.push(Pessoa)
+        return console.log(`Pessoa salva com sucesso com o id: ${this.id_voto}`)
     }
     GetPessoas(){
-        return Pessoa_Voto
+        return Pessoa_banco
     }
 }
+
+const obj_pessoa = {
+    "nome": "gsiswdnsw"
+}
+
+module.exports = Pessoa
