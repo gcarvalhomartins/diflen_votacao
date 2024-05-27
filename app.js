@@ -13,18 +13,20 @@ server.LigarServerProduction()
 
 
 
-// mostrando todos os votos
+// mostrando todas as pessoas
 server._express.get('/',(req,res) => {
-    res.send(pessoa.GetPessoas())
+    res.send(voto.GetVotos())
 });
 
-// post de votos
+// post de pessoas
 server._express.post('/',(req,res) => {
     let obj = req.body
     let gerando_id = serialObj.SaveIdObj(obj)// ok ele retorna um objeto com id
-    let get_person = serialObj.CleanPessoa(gerando_id)
-    let save_person = pessoa.SavePessoa(get_person)
-    res.send(save_person)
+    // let get_person = serialObj.CleanPessoa(gerando_id) aqui ta funcionando não mexe animal
+    // let save_person = pessoa.SavePessoa(get_person)
+    let voto_person = serialObj.CleanVoto(gerando_id)
+    let save_voto = voto.SaveVoto(voto_person)
+    res.send(save_voto)
 });
 // falta add a lib pra conectar ao banco que são os
 

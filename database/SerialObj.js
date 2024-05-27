@@ -97,6 +97,16 @@ class Serial {
         armazenamento_pessoa.push( obj )
         return armazenamento_pessoa
       };
+
+      CleanVoto(obj){
+        let armazenamento_voto = []
+        delete obj.nome
+        delete obj.Telefone
+        delete obj.Email
+        
+        armazenamento_voto.push( obj )
+        return armazenamento_voto
+      }
 };
 
 module.exports = Serial

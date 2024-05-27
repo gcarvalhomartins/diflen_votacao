@@ -18,15 +18,13 @@ class Pessoa {
     }
     SavePessoa(Pessoa){
         Pessoa_banco.push(Pessoa)
-        return console.log(`Pessoa salva com sucesso com o id: ${this.id_voto}`)
+        return console.log(`Pessoa salva com sucesso : ${Pessoa}`)
     }
     GetPessoas(){
         return Pessoa_banco
     }
 }
 
-const obj_pessoa = {
-    "nome": "gsiswdnsw"
-}
+
 
 module.exports = Pessoa
