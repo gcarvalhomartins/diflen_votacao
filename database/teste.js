@@ -183,7 +183,7 @@
 
 function SerialArray(array_teste){
     let arm = []
-    for(let {nome,Telefone, id_voto} of array_teste){
+    for( let {nome,Telefone, id_voto} of array_teste){
        arm.push(nome,Telefone,id_voto)
     }
     //let values_obj = SerialObj(arm)
