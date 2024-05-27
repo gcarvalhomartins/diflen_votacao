@@ -93,6 +93,8 @@ class Serial {
         // for ( let  key  in obj ) { 
           
         // };
+        // também se pode utilizar assim let { categoria }
+        // return { categoria }, tenho que analisar, acho que funciona melhor para salvar os dados
         delete obj.categoria
         armazenamento_pessoa.push( obj )
         return armazenamento_pessoa
