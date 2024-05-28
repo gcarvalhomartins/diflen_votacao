@@ -10,19 +10,19 @@ const Pessoa_banco= [{
 
 class Pessoa {
 
-    constructor(nome,telefone,email,id_voto){
+    constructor(nome, Telefone, Email, id_obj ){
         this.nome = nome,
-        this.telfone = telefone,
-        this.email = email,
-        this.id_voto = id_voto
-    }
-    SavePessoa(Pessoa){
-        Pessoa_banco.push(Pessoa)
-        return console.log(`Pessoa salva com sucesso : ${Pessoa}`)
-    }
+        this.Telefone = Telefone,
+        this.email = Email,
+        this.id_obj = id_obj
+    };
+    SavePessoa(nome,Telefone,Email,id_obj){
+        Pessoa_banco.push({ nome, Telefone, Email, id_obj})
+        return { nome, Telefone, Email, id_obj }
+    };
     GetPessoas(){
         return Pessoa_banco
-    }
+    };
 }
 
 

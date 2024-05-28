@@ -1,72 +1,12 @@
+const Pessoa = require('./ModelPessoa')
 // classe para limpar a requisição e depois salvar os dados
-
-const User = [{
-    "nome": "Gabriel",
-    "Telefone": 995736647,
-    "Email": 'gcarvalhoetc....',
-    "categoria": [
-      {
-        tipo_cat: 1,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 2,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 3,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 4,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 5,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 6,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 7,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 8,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 9,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 10,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 11,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 12,
-        value: "niguem"
-      },
-      {
-        tipo_cat: 13,
-        value: "niguem"
-      }
-      
-    ],
-    "id_obj": 515006
-  }];
 
 
 class Serial {
     
     constructor(obj) {
-        this.obj = obj
+        this.obj = obj,
+        this._pessoa = new Pessoa()
     };
 
     GerarId(){
@@ -80,12 +20,12 @@ class Serial {
     SaveIdObj(obj) {
         let id = this.GerarId()
         obj.id_obj = id
-        User.push(obj)
-        return obj
+        // User.push(obj)
+        return obj 
       };
       // clean pessoa esta ficando nulo
     CleanPessoa(obj) {
-        let armazenamento_pessoa = []
+        // let armazenamento_pessoa = []
         // // let array_teste_mago = []
         
         // array_teste_mago.push(obj)
@@ -95,20 +35,19 @@ class Serial {
         // };
         // também se pode utilizar assim let { categoria }
         // return { categoria }, tenho que analisar, acho que funciona melhor para salvar os dados
-        delete obj.categoria
-        armazenamento_pessoa.push( obj )
-        return armazenamento_pessoa
+        // delete obj.categoria
+        // armazenamento_pessoa.push( obj )
+        // return armazenamento_pessoa
+
+        let { nome , Telefone, Email, id_obj } = obj
+        let resultperson = this._pessoa.SavePessoa(nome, Telefone, Email, id_obj )
+        return { resultperson }
       };
 
       CleanVoto(obj){
-        let armazenamento_voto = []
-        delete obj.nome
-        delete obj.Telefone
-        delete obj.Email
-        
-        armazenamento_voto.push( obj )
-        return armazenamento_voto
-      }
+        let { categoria, id_obj } = obj
+        return { categoria, id_obj }
+      };
 };
 
 module.exports = Serial
