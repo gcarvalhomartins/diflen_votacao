@@ -23,7 +23,14 @@ class Serial {
         // User.push(obj)
         return obj 
       };
-      // clean pessoa esta ficando nulo
+    SaveObj(obj){
+      let createPerson = this.CleanPessoa(obj)
+      let createVoto = this.CleanVoto(obj)
+
+      let resultObj = { createPerson, createVoto}
+      
+      return resultObj
+    }
     CleanPessoa(obj) {
         // let armazenamento_pessoa = []
         // // let array_teste_mago = []

@@ -27,6 +27,7 @@ server._express.post('/',(req,res) => {
    //  let voto_person = serialObj.CleanVoto(gerando_id)
     // let save_voto = voto.SaveVoto(voto_person)
     res.send(get_person)
+    
 });
 // falta add a lib pra conectar ao banco que são os
 
