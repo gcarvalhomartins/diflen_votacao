@@ -60,12 +60,13 @@ const VotoUser = [{
 
 class Voto {
   
-  constructor(voto){
-    this.voto = voto
+  constructor(categoria,id_voto){
+    this.categoria = categoria,
+    this.id_voto = id_voto
   };
-  SaveVoto(voto){
-    VotoUser.push(voto)
-    return console.log(`Voto salvo com sucesso: ${voto} `)
+  SaveVoto(categoria, id_voto){
+    VotoUser.push({categoria, id_voto})
+    return { categoria, id_voto }
   };
   GetVotos(){
     return VotoUser

@@ -1,4 +1,5 @@
 const Pessoa = require('./ModelPessoa')
+const Voto = require('./ModelVoto')
 // classe para limpar a requisição e depois salvar os dados
 
 
@@ -7,6 +8,7 @@ class Serial {
     constructor(obj) {
         this.obj = obj,
         this._pessoa = new Pessoa()
+        this._voto = new Voto()
     };
 
     GerarId(){
@@ -27,9 +29,9 @@ class Serial {
       let createPerson = this.CleanPessoa(obj)
       let createVoto = this.CleanVoto(obj)
 
-      let resultObj = { createPerson, createVoto}
+      let resultObj =  [{createPerson}, { createVoto }]
       
-      return resultObj
+      return  resultObj 
     }
     CleanPessoa(obj) {
         // let armazenamento_pessoa = []
@@ -53,7 +55,8 @@ class Serial {
 
       CleanVoto(obj){
         let { categoria, id_obj } = obj
-        return { categoria, id_obj }
+        let resultVoto = this._voto.SaveVoto(categoria, id_obj )
+        return { resultVoto }
       };
 };
 
