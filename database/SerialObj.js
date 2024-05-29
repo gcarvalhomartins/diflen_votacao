@@ -29,7 +29,7 @@ class Serial {
       let createPerson = this.CleanPessoa(obj)
       let createVoto = this.CleanVoto(obj)
 
-      let resultObj =  [{createPerson}, { createVoto }]
+      let resultObj =  {createPerson, createVoto}
       
       return  resultObj 
     }
@@ -50,13 +50,13 @@ class Serial {
 
         let { nome , Telefone, Email, id_obj } = obj
         let resultperson = this._pessoa.SavePessoa(nome, Telefone, Email, id_obj )
-        return { resultperson }
+        return  resultperson 
       };
 
       CleanVoto(obj){
         let { categoria, id_obj } = obj
         let resultVoto = this._voto.SaveVoto(categoria, id_obj )
-        return { resultVoto }
+        return  resultVoto 
       };
 };
 
