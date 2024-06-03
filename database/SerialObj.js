@@ -1,5 +1,5 @@
-const Pessoa = require('./ModelPessoa')
-const Voto = require('./ModelVoto')
+const Pessoa = require('./ModelPessoa');
+const Voto = require('./ModelVoto');
 // classe para limpar a requisição e depois salvar os dados
 
 
@@ -7,32 +7,33 @@ class Serial {
     
     constructor(obj) {
         this.obj = obj,
-        this._pessoa = new Pessoa()
-        this._voto = new Voto()
+        this._pessoa = new Pessoa();
+        this._voto = new Voto();
     };
 
     GerarId(){
-        let min = Math.ceil(111111)
-        let max = Math.floor(999999)
-        let id = Math.floor(Math.random() * (max - min + 1)) + min
+        let min = Math.ceil(111111);
+        let max = Math.floor(999999);
+        let id = Math.floor(Math.random() * (max - min + 1)) + min;
     
-        return id
+        return id;
        };
 
     SaveIdObj(obj) {
-        let id = this.GerarId()
-        obj.id_obj = id
+        let id = this.GerarId();
+        obj.id_obj = id;
         // User.push(obj)
-        return obj 
+        return obj;
       };
-    SaveObj(obj){
-      let createPerson = this.CleanPessoa(obj)
-      let createVoto = this.CleanVoto(obj)
-
-      let resultObj =  {createPerson, createVoto}
       
-      return  resultObj 
-    }
+    SaveObj(obj){
+      let createPerson = this.CleanPessoa(obj);
+      let createVoto = this.CleanVoto(obj);
+
+      let resultObj =  {createPerson, createVoto};
+      
+      return  resultObj ;
+    };
     CleanPessoa(obj) {
         // let armazenamento_pessoa = []
         // // let array_teste_mago = []
@@ -48,16 +49,16 @@ class Serial {
         // armazenamento_pessoa.push( obj )
         // return armazenamento_pessoa
 
-        let { nome , Telefone, Email, id_obj } = obj
-        let resultperson = this._pessoa.SavePessoa(nome, Telefone, Email, id_obj )
-        return  resultperson 
+        let { nome , Telefone, Email, id_obj } = obj ;
+        let resultperson = this._pessoa.SavePessoa(nome, Telefone, Email, id_obj );
+        return  resultperson ;
       };
 
       CleanVoto(obj){
-        let { categoria, id_obj } = obj
-        let resultVoto = this._voto.SaveVoto(categoria, id_obj )
-        return  resultVoto 
+        let { categoria, id_obj } = obj;
+        let resultVoto = this._voto.SaveVoto(categoria, id_obj );
+        return  resultVoto ;
       };
 };
 
-module.exports = Serial
+module.exports = Serial;

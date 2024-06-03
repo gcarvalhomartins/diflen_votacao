@@ -4,7 +4,7 @@ const SerialObj = require('./database/SerialObj')
 const Pessoa = require('./database/ModelPessoa')
 const pessoa = new Pessoa()
 const serialObj = new SerialObj() 
-//const voto = new Voto()
+const voto = new Voto()
 const server = new Server();
 
 
@@ -13,19 +13,19 @@ server.LigarServerProduction()
 
 
 
-// mostrando todas as pessoas
+// mostrando tudo
 server._express.get('/',(req,res) => {
-    res.send(pessoa.GetPessoas())
+    let resultBdPerson  = pessoa.GetPessoas()
+    let resultBdVoto = voto.GetVotos()
+    let arqui = {resultBdPerson, resultBdVoto}
+    res.send(arqui)
 });
 
-// post de pessoas
+// post de tudo
 server._express.post('/',(req,res) => {
     let obj = req.body
     let gerando_id = serialObj.SaveIdObj(obj)// ok ele retorna um objeto com id
     let get_person = serialObj.SaveObj(gerando_id) // aqui ta funcionando não mexe animal
-   // let save_person = voto.SaveVoto(get_person)
-   //  let voto_person = serialObj.CleanVoto(gerando_id)
-    // let save_voto = voto.SaveVoto(voto_person)
     res.send(get_person)
     
 });

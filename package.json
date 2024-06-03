@@ -21,5 +21,10 @@
     "url": "https://github.com/gcarvalhomartins/diflen_votacao/issues"
   },
   "homepage": "https://github.com/gcarvalhomartins/diflen_votacao#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.4.0",
+    "eslint": "^9.4.0",
+    "globals": "^15.3.0"
+  }
 }
