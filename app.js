@@ -6,12 +6,18 @@ const pessoa = new Pessoa()
 const serialObj = new SerialObj() 
 const voto = new Voto()
 const server = new Server();
+const connection = require('./database/connection')
 
 
 // ligando servidor
 server.LigarServerProduction()
 
-
+// teste de conecção com o banco de dados
+connection.authenticate().then(()=>{
+    console.log("funfo banco de dados")
+}).catch((msgErro)=>{
+    console.log(msgErro)
+});
 
 // mostrando tudo
 server._express.get('/',(req,res) => {
@@ -32,6 +38,6 @@ server._express.post('/',(req,res) => {
 // falta add a lib pra conectar ao banco que são os
 
 
-// mysql2
-// sequelize
+// mysql2 lib instalada com sucesso 
+// sequelize lib instalada com sucesso
 
