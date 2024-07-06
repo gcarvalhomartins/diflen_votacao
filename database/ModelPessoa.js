@@ -1,11 +1,26 @@
 
 // criar um array de objetos só de teste
-const Pessoa_banco = [{
-    'nome': 'Alguém',
-    'Telefone': 995736647,
-    'Email': 'gcarvalhoetc@gmail.com....',
-    'id_voto': 832652
-  }];
+const Sequelize = require('sequelize')
+const connection = require('./connection')
+
+const PessoaSave = connection.define('pessoa',{
+    nome: {
+        type:Sequelize.STRING,
+        allowNull:false
+    },
+    Telefone:{
+     type:Sequelize.STRING,
+     allowNull: false   
+    },
+    Email:{
+        type:Sequelize.STRING,
+        allowNull: false   
+    },
+    id_obj:{
+        type:Sequelize.INTEGER,
+        allowNull: false   
+    }
+});
 
 
 class Pessoa {
@@ -17,12 +32,18 @@ class Pessoa {
         this.id_obj = id_obj;
     };
     SavePessoa(nome,Telefone,Email,id_obj){
-        Pessoa_banco.push({ nome, Telefone, Email, id_obj});
+        PessoaSave.create({ nome, Telefone, Email, id_obj});
         return { nome, Telefone, Email, id_obj };
     };
     GetPessoas(){
         return Pessoa_banco;
     };
+    Verificar(){
+    const verific_connection = Pessoa.sync({force:false}).then(()=>{
+            console.log("Tabela Pessoa criada com sucesso!")
+        });
+    return verific_connection
+    }
 }
 
 
